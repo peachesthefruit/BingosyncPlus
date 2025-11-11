@@ -5,8 +5,10 @@ Bingosync+
 + Go to [this page](https://addons.mozilla.org/en-US/firefox/addon/bingosyncplus/) and install the extension.
 + You are done.
 
-## How to install on Chrome (Coming Soon)
-+ You are done.
+## How to install on Chrome (Web Store Coming Soon Hopefully)
++ Download this repository as a ZIP
++ Go to chrome://extensions in Chrome
++ Click "Load Unpacked" and select the ZIP you just downloaded
 
 ## What does Bingosync+ do?
 For now the main feature is around Invasion Lockout, the extension can display clickable goals and mistakes from either player. You can disable both types of indicators individually in the settings menu.
