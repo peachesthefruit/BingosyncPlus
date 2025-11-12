@@ -52,35 +52,43 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
                 theme: config.theming ? message.theme : undefined
             });
             // save to localStorage
-            localStorage.setItem("bsp_theme", JSON.stringify(message.theme));
+            chrome.storage.local.set({"bsp_theme": JSON.stringify(message.theme)});
             break;
         case "listsA":
             console.log("new lists A");
             updateTabs(message);
             // save to localStorage
-            localStorage.setItem("bsp_listsA", message.lists);
+            chrome.storage.local.set({"bsp_listsA": message.lists});
             break;
         case "listsB":
             console.log("new lists B");
             updateTabs(message);
             // save to localStorage
-            localStorage.setItem("bsp_listsB", message.lists);
+            chrome.local.storage.get({"bsp_listsB": message.lists});
             break;
         case "request":
             switch (message.content) {
                 case "config":
-                    respond(JSON.parse(localStorage.getItem("bsp_config")));
+		    chrome.local.storage.get(["bsp_config"]).then((result) => {
+                        respond(JSON.parse(result["bsp_config"]));
+                    });
                     break;
                 case "theme":
                     if (config) {
-                        respond(config.theming ? JSON.parse(localStorage.getItem("bsp_theme")) : undefined);
+                        chrome.local.storage.get(["bsp_theme"]).then((result) => {
+                            respond(config.theming ? JSON.parse(result["bsp_theme"]) : undefined);
+                        });
                     }
                     break;
                 case "listsA":
-                    respond(localStorage.getItem("bsp_listsA"));
+		    chrome.local.storage.get(["bsp_listsA"]).then((result) => {
+                        respond(result["bsp_listsA"]);
+                    });
                     break;
                 case "listsB":
-                    respond(localStorage.getItem("bsp_listsB"));
+                    chrome.local.storage.get(["bsp_listsB"]).then((result) => {
+                        respond(result["bsp_listsB"]);
+                    });
                     break;
             }
             break;
