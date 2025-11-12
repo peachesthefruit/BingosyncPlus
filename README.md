@@ -1,15 +1,14 @@
 Bingosync+
 --------------------
 
-![image](https://addons.cdn.mozilla.net/user-media/previews/full/239/239707.png)
-
-## How to install on Firefox
+## How to install on Firefox (Papa's extension, not ine)
 + Go to [this page](https://addons.mozilla.org/en-US/firefox/addon/bingosyncplus/) and install the extension.
 + You are done.
 
-## How to install on Chrome
-+ Go to [this page](https://chrome.google.com/webstore/detail/bingosync+/hofapjdggopcbokpjhggekopkmmpgpkp) and install the extension.
-+ You are done.
+## How to install on Chrome (Web Store Coming Soon Hopefully)
++ Download this repository as a ZIP
++ Go to chrome://extensions in Chrome
++ Click "Load Unpacked" and select the ZIP you just downloaded
 
 ## What does Bingosync+ do?
 For now the main feature is around Invasion Lockout, the extension can display clickable goals and mistakes from either player. You can disable both types of indicators individually in the settings menu.
@@ -18,4 +17,11 @@ The indicators will only show up if two or more people are in the Bingosync room
 More features may come in the future depending on tournaments and user feedback.
 
 ### Pipeline:
- - Local Color Customization (Theming)
+
+### Things Broken on Chrome:
+
+I had to migrate this to new Chrome APIs and a lot of things probably don't work correctly. Below are the known issues:
+
+- Antistars
+- Translations
+- Blind Draft
