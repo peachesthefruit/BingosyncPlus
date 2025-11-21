@@ -39,7 +39,8 @@
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
   },
   "web_accessible_resources": [
     {
@@ -65,5 +66,14 @@
   "options_ui": {
     "open_in_tab": true,
     "page": "options/page.html"
+  },
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "bingosyncp@peaches",
+    "data_collection_permissions": {
+      "required": ["none"]
+    }
   }
+}
+
 }

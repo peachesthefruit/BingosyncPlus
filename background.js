@@ -64,29 +64,29 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
             console.log("new lists B");
             updateTabs(message);
             // save to localStorage
-            chrome.local.storage.get({"bsp_listsB": message.lists});
+            chrome.storage.local.get({"bsp_listsB": message.lists});
             break;
         case "request":
             switch (message.content) {
                 case "config":
-		    chrome.local.storage.get(["bsp_config"]).then((result) => {
+		    chrome.storage.local.get(["bsp_config"]).then((result) => {
                         respond(JSON.parse(result["bsp_config"]));
                     });
                     break;
                 case "theme":
                     if (config) {
-                        chrome.local.storage.get(["bsp_theme"]).then((result) => {
+                        chrome.storage.local.get(["bsp_theme"]).then((result) => {
                             respond(config.theming ? JSON.parse(result["bsp_theme"]) : undefined);
                         });
                     }
                     break;
                 case "listsA":
-		    chrome.local.storage.get(["bsp_listsA"]).then((result) => {
+		    chrome.storage.local.get(["bsp_listsA"]).then((result) => {
                         respond(result["bsp_listsA"]);
                     });
                     break;
                 case "listsB":
-                    chrome.local.storage.get(["bsp_listsB"]).then((result) => {
+                    chrome.storage.local.get(["bsp_listsB"]).then((result) => {
                         respond(result["bsp_listsB"]);
                     });
                     break;
