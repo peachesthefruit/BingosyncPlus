@@ -23,7 +23,6 @@ function checkRows() {
         for (const slot of row) {
             slot.rclocked = '0';
             slot.style.color = 'rgba(255,255,255,1)';
-            ensureAntistars();
             if (getElementChildByClassName(slot, `${colors[0]}square`)) {
                 countP1inRow++;
             }
@@ -38,7 +37,6 @@ function checkRows() {
                     if (!slot.title) {
                         slot.rclocked = '1';
                         slot.style.color = 'rgba(255,255,255,0.4)';
-                        ensureAntistars();
                     }
                 }
             }

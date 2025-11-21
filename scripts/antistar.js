@@ -4,6 +4,7 @@
 // 2 -> Half Faded Text
 // 3 -> Transparent Text
 
+/*
 function ensureAntistars() {
     for (let i = 1; i <= 25; i++) {
         // If there isn't a AntiStar div yet for that slot
@@ -124,5 +125,7 @@ new MutationObserver(ensureAntistars).observe(document.getElementById("bingo-cha
     subtree: true
 });
 
-console.log("Antistar module loaded.")
+*/
+
+console.log("Antistar module NOT loaded.")
 
