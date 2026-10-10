@@ -231,13 +231,21 @@ new MutationObserver(checkStatusOnLoad).observe(document.getElementsByClassName(
 });
 
 function getRecentDate(time) {
-    let now = new Date();
-    const dateString = `${now.getFullYear()}-${(now.getMonth() < 10 ? '0' : '') + (1 + now.getMonth())}-${(now.getDate() < 10 ? '0' : '') + now.getDate()}T${time}`;
-    let fullDate = Date.parse(dateString);
-    while (fullDate > Date.now()) {
-        fullDate -= 24 * 60 * 60 * 1000;
+    const [hours, minutes, seconds] = time.split(':').map(Number);
+    
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const day = now.getDate();
+    
+    let targetDate = new Date(year, month, day, hours, minutes, seconds || 0);
+    
+    // If the specified time is in the future relative to 'now', roll it back to yesterday
+    if (targetDate > now) {
+        targetDate.setDate(targetDate.getDate() - 1);
     }
-    return fullDate;
+    
+    return targetDate;
 }
 
 function checkStatusOnLoad() {
